@@ -17,6 +17,6 @@ public class Utilisateur {
     private String email;
     private String motdepasse;
     private Long solde;
-
+    private String role;
 
 }
