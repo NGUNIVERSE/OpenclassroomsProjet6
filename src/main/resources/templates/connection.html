@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <div th:replace="head :: head"></div>
+    <title>Registration</title>
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<p th:text="${authentication.getName()}"></p>
+<div th:replace="menu :: menu"></div>
+<div th:replace="breadcrumb :: breadcrumb"></div>
+
+<div class="container justify-content-center col-md-6 offset-md-3"
+     style="margin-top: 5em; border-radius: 15px; border: 2px solid lightgray;">
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+
+            <h2>Connection</h2>
+        </div>
+
+        <form th:action="@{/homepage/connection}" method="post" th:object="${searchUser}">
+            <div th:if="!${searchUser.name}">
+                <div class="col-md-6 offset-md-3">
+                    <label class="control-label " for="email"> Email </label>
+                    <input id="email" class="form-control " th:field="*{email}" required autofocus="autofocus"/>
+
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button value="search" name="action" type="submit" class="btn btn-success ">Search</button>
+                </div>
+                <p th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></p>
+            </div>
+
+            <div th:if="${searchUser.name}">
+                <div class="d-none">
+                    <label class="control-label " for="email"> Email </label>
+                    <input id="email" class="form-control " th:field="*{email}" required autofocus="autofocus"/>
+
+                </div>
+                <div class="col-md-6 offset-md-3 mt-3"> <!-- test si null -->
+
+                    <label class="control-label " for="name"> Name </label>
+                    <input id="name" class="form-control " th:field="*{name}" disabled/>
+                </div>
+
+
+                <div class="d-flex justify-content-center pt-3 mx-auto">
+                    <button value="add" name="action" type="submit" class="mr-4 btn btn-success">Add Connection
+                    </button>
+
+                    <button type="submit" class="ml-4 btn btn-success">Remove Connection
+                    </button>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="col-md-6 pt-3 "></div>
+
+</div>
+
+</body>
+</html>

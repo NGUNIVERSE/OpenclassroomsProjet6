@@ -15,7 +15,12 @@ public class Transaction {
 
     private String descriptions;
     private Long amount;
-    private int senderid;
-    private int recipientid;
+
+    @ManyToOne
+    @JoinColumn(name = "senderid", nullable = false)
+    private Utilisateur sender;
+    @ManyToOne
+    @JoinColumn(name = "recipientid", nullable = false)
+    private Utilisateur recipient;
 
 }

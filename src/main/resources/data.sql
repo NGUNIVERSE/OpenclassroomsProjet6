@@ -4,21 +4,21 @@ nom VARCHAR(100),
 prenom VARCHAR(100),
 email VARCHAR(255) NOT NULL UNIQUE,
 motdepasse VARCHAR(255),
-connections VARCHAR(255),
 solde LONG
---FOREIGN KEY (id)
---REFERENCES transactions(id)
 );
 
 CREATE TABLE IF NOT EXISTS transactions(
 id INTEGER AUTO_INCREMENT PRIMARY KEY,
+senderid INTEGER , FOREIGN KEY (senderid) REFERENCES utilisateur(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+recipientid INTEGER , FOREIGN KEY (recipientid) REFERENCES utilisateur(id) ON DELETE RESTRICT ON UPDATE CASCADE,
 descriptions VARCHAR(255),
 amount LONG
 );
 
-CREATE TABLE IF NOT EXISTS `connection`(
+CREATE TABLE IF NOT EXISTS `connections`(
 senderid INTEGER , FOREIGN KEY (senderid) REFERENCES utilisateur(id) ON DELETE RESTRICT ON UPDATE CASCADE,
 recipientid INTEGER , FOREIGN KEY (recipientid) REFERENCES utilisateur(id) ON DELETE RESTRICT ON UPDATE CASCADE,
 PRIMARY KEY (senderid, recipientid)
 );
 
+select * from utilisateur

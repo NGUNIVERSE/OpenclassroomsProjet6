@@ -1,5 +1,6 @@
-package com.openclassrooms.p6.paymybuddy.model;
+package com.openclassrooms.p6.paymybuddy.dto;
 
+import com.openclassrooms.p6.paymybuddy.model.Utilisateur;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,22 +10,22 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MyUserDetails implements UserDetails {
+public class UserDetailsDto implements UserDetails {
 
     private String userName;
     private String password;
     private boolean active;
     private List<GrantedAuthority> authorities;
 
-    public MyUserDetails() {
+    public UserDetailsDto() {
 
     }
 
-    public MyUserDetails(String userName) {
+    public UserDetailsDto(String userName) {
         this.userName = userName;
     }
 
-    public MyUserDetails(Utilisateur utilisateur) {
+    public UserDetailsDto(Utilisateur utilisateur) {
 
         this.userName = utilisateur.getEmail();
         this.password = utilisateur.getMotdepasse();
