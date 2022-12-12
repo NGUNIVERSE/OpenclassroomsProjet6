@@ -33,15 +33,13 @@
             </div>
 
             <div th:if="${searchUser.name}">
-                <div class="d-none">
-                    <label class="control-label " for="email"> Email </label>
-                    <input id="email" class="form-control " th:field="*{email}" required autofocus="autofocus"/>
 
-                </div>
+                <input type="hidden" th:value="${searchUser.email}" name="email"/>
+
                 <div class="col-md-6 offset-md-3 mt-3"> <!-- test si null -->
 
                     <label class="control-label " for="name"> Name </label>
-                    <input id="name" class="form-control " th:field="*{name}" disabled/>
+                    <input id="name" class="form-control " th:field="*{name}" readonly/>
                 </div>
 
 

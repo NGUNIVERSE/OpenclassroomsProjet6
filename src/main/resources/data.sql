@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS transactions(
 id INTEGER AUTO_INCREMENT PRIMARY KEY,
 senderid INTEGER , FOREIGN KEY (senderid) REFERENCES utilisateur(id) ON DELETE RESTRICT ON UPDATE CASCADE,
 recipientid INTEGER , FOREIGN KEY (recipientid) REFERENCES utilisateur(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-descriptions VARCHAR(255),
+`description` VARCHAR(255),
 amount LONG
 );
 

@@ -34,4 +34,8 @@ public class UtilisateurService {
         utilisateurRepository.save(sender);
 
     }
+
+    public Optional<Utilisateur> getUtilisateurById(int id) {
+        return utilisateurRepository.findById(id);
+    }
 }

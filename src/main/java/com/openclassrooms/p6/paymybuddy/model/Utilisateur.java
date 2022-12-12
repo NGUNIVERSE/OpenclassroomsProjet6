@@ -3,6 +3,8 @@ package com.openclassrooms.p6.paymybuddy.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -18,13 +20,13 @@ public class Utilisateur {
     private String prenom;
     private String email;
     private String motdepasse;
-    private Long solde;
+    private Long solde = 0L;
     private String role;
 
     @OneToMany(mappedBy = "sender")
-    private List<Transaction> transfers;
+    private List<Transaction> transfers = new ArrayList<>();
     @OneToMany(mappedBy = "recipient")
-    private List<Transaction> credits;
+    private List<Transaction> credits = new ArrayList<>();
 
 
     @ManyToMany
@@ -32,7 +34,7 @@ public class Utilisateur {
             name = "connections",
             joinColumns = @JoinColumn(name = "senderid"),
             inverseJoinColumns = @JoinColumn(name = "recipientid"))
-    private Set<Utilisateur> connections;
+    private Set<Utilisateur> connections = new HashSet<>();
 
 
 }

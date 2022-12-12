@@ -13,7 +13,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String descriptions;
+    private String description;
     private Long amount;
 
     @ManyToOne

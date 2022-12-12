@@ -50,7 +50,7 @@ public class ConnectionController {
         ModelAndView modelAndView = new ModelAndView("connection");
         modelAndView.addObject("authentication", authentication);
         modelAndView.addObject("searchUser", searchUser);
-        modelAndView.addObject("breadcrumb", "Tranfer");
+        modelAndView.addObject("breadcrumb", "Transfer");
         return modelAndView;
 
     }
